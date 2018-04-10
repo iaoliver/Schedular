@@ -21,6 +21,7 @@ int main()
 	int endT;
 	int bitS;
 	int bitE;
+	int index = 0;
 
 	startT = 1200;
 	endT = 1330;
@@ -34,9 +35,18 @@ int main()
 	{
 		mask[i].flip();
 	}
-	cout << "Mask: \n" << mask << endl;
+	cout << "BitE: " << bitE << endl;
+	cout << "BitS: " << bitS << endl;
+	//cout << "Mask: \n" << mask << endl;
+	for (int j = 0; j < (204 / 12); j++)
+	{
+		for (int hour = 0; hour < 12; hour++)
+		{
+			cout << mask[index++];
+		}
+		cout << endl;
+	}
 	
-
 
 	cout << "Monday: \n" << monday << endl;
 	//startT 12:00 - 13:30
@@ -50,11 +60,14 @@ int findBitForTime(int time)
 {
 	int start = 600;
 	int i = 0;
-
-	while (!(time == start))
+	while (!(time == start) )
 	{
 		start += 5;
 		i++;
+		if (start % 100 == 60)
+		{
+			start += 40;
+		}
 	}
 
 	return i;
