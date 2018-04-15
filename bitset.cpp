@@ -49,7 +49,7 @@ int main()
 	
 
 	cout << "Monday: \n" << monday << endl;
-	//startT 12:00 - 13:30
+
 
 
 	cout << endl;
@@ -64,11 +64,25 @@ int findBitForTime(int time)
 	{
 		start += 5;
 		i++;
-		if (start % 100 == 60)
+		if ((start % 100) == 60)
 		{
 			start += 40;
 		}
 	}
 
 	return i;
+}
+
+void printDay(bitset<204> day)
+{
+	int index = 0;
+
+	for (int j = 0; j < (204 / 12); j++)
+	{
+		for (int hour = 0; hour < 12; hour++)
+		{
+			cout << day[index++];
+		}
+		cout << endl;
+	}
 }
